@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loading Animation Example</title>
+    <style>
+        /* Initial content hidden */
+        #main-content {
+            display: none;
+        }
+        body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0;
+}
+
+.loading-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.spinner {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: repeat(2,1fr);
+    width: 60px;
+    height: 60px;
+    transform-origin:center;
+    border-radius: 0%;
+    animation: spin  2s infinite;
+    background: transparent;
+}
+
+.dot{
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    background-color: black;
+}
+
+#dot1{
+    background-color: rgb(63, 230, 130);
+    grid-column: 1;
+    grid-row: 1;
+    align-self: flex-start;
+    justify-self: flex-start;
+}
+
+#dot2{
+    position: relative;
+    background-color: rgb(0, 0, 255);
+    grid-column: 2;
+    grid-row: 1;
+    align-self: start;
+    justify-self: flex-end;
+    
+}
+
+#dot3{
+    position: relative;
+    background-color: rgb(0,0, 255);
+    grid-column: 1;
+    grid-row: 2;
+    align-self: flex-end;
+    justify-self: flex-start;
+   
+}
+
+#dot4{
+    position: relative;
+    background-color: rgb(0, 0, 255);
+    grid-column: 2;
+    grid-row: 2;
+    align-self: flex-end;
+    justify-self: flex-end;
+   
+}
+
+@keyframes spin {
+    0%{transform: rotate(0deg);
+        gap: 0px;}
+    25%{gap: 5px;}
+    50%{gap: 15px;
+        scale: 1.25;}
+    100% {transform: rotate(720deg);
+          gap: 5px;}
+        
+    
+}
+
+        /* Loading spinner 
+        .loader {
+            border: 8px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 8px solid #3498db;
+            width: 60px;
+            height: 60px;
+            animation: spin 2s linear infinite;
+        }
+
+        /* Spin animation 
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Center loader 
+        .center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }*/
+    </style>
+</head>
+<body>
+
+    <button id="load-btn">Show Content</button>
+
+    <div id="loader" class="center" style="display:none;">
+        <div class="spinner">
+            <div class="dot" id="dot1"></div>
+            <div class="dot" id="dot2"></div>
+            <div class="dot" id="dot3"></div>
+            <div class="dot" id="dot4"></div>
+        </div>
+    </div>
+
+    <div id="main-content">
+        <h1>Main Content Revealed!</h1>
+        <p>This content appears after the loading animation.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus, non voluptatem, facilis earum ut quia explicabo porro, neque officia aliquid commodi assumenda. Laudantium consectetur assumenda voluptate quo qui, tenetur ipsa.</p>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quasi modi blanditiis labore tempore, autem, eius temporibus, corrupti omnis provident non accusamus consectetur libero quas adipisci rerum! Aut, aperiam? Similique, ipsum.</p>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quasi modi blanditiis labore tempore, autem, eius temporibus, corrupti omnis provident non accusamus consectetur libero quas adipisci rerum! Aut, aperiam? Similique, ipsum.</p>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quasi modi blanditiis labore tempore, autem, eius temporibus, corrupti omnis provident non accusamus consectetur libero quas adipisci rerum! Aut, aperiam? Similique, ipsum.</p>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quasi modi blanditiis labore tempore, autem, eius temporibus, corrupti omnis provident non accusamus consectetur libero quas adipisci rerum! Aut, aperiam? Similique, ipsum.</p>
+        <h1>this is the end fo the page</h1>
+        <p style="margin-top: 500px;">This is the bottom of the content.</p>
+    </div>
+
+    <script>
+        const button = document.getElementById('load-btn');
+        const loader = document.getElementById('loader');
+        const content = document.getElementById('main-content');
+
+        button.addEventListener('click', function() {
+            // Show the loader
+            loader.style.display = 'flex';
+
+            // Hide the button
+            button.style.display = 'none';
+
+            // After 3 seconds, hide the loader and show the content
+            setTimeout(function() {
+                loader.style.display = 'none';
+                content.style.display = 'flex';
+
+                // Scroll to the bottom of the content
+                content.scrollIntoView({ behavior: 'smooth', block: 'end' });
+            }, 3000);  // 2500 milliseconds = 2.5 seconds
+        });
+    </script>
+
+</body>
+</html>

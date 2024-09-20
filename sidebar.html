@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sidebar Example</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <style>
+       /* home page */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #bac8ca;
+    min-height: 100vh;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #232f4e;
+    color: white;
+    padding: 10px 20px;
+    position: sticky;
+    top: 0;
+    min-width: 100%;
+    z-index: 0;
+}
+
+.logo {
+    font-size: 24px;
+    z-index: 1;
+}
+
+.search-bar {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.search-bar input, .search-bar button {
+    padding: 5px;
+    margin-right: 5px;
+    border-radius: 5px;
+    flex-shrink: 1;
+}
+
+.search-bar button {
+    background-color: #febd69;
+    border: none;
+    cursor: pointer;
+}
+
+.search-bar button:hover {
+    background-color: #ffac3e;
+}
+
+
+
+/* navigation bars */
+nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+nav li {
+    margin-left: 20px;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    
+}
+
+.nav-menu {
+    display: none;
+}
+
+#hamburger-menu {
+    display: none;
+}
+
+#accBtn {
+    border-radius: 25px;
+    height: 30px;
+    width: 30px;
+}
+
+main {
+    
+    flex: 1;
+    padding: 20px;
+}
+
+.products {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #bac8ca;
+}
+
+.product {
+    border: 1px solid #000;
+    background-color: #f7f7f7;
+    margin: 5px;
+    padding: 10px;
+    width: 100%; /* 100% width for mobile */
+    max-width: 200px; /* Max width for larger screens */
+    text-align: center;
+    border-radius: 10px;
+}
+
+.product img {
+    max-width: 100%;
+    max-height: 150px;
+}
+
+    #openSidebarBtn {
+        
+        width: 30px;
+        height: 25px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        cursor: pointer;
+        margin: 10px;
+        position: relative;
+        z-index: 2000;
+    }
+
+    #openSidebarBtn  {
+        height: auto;
+        background-color: transparent;
+        color: white;
+    }
+       /* Sidebar styles */
+        #sidebar {
+            display: flex;
+            flex-direction: column;
+            position: fixed;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 250px;
+            background-color:green ;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+            transition: transform 0.3s ease;
+            transform: translateX(-100%);
+            z-index: 200;
+            color: rgb(255, 255, 255);
+           
+            box-sizing: border-box;
+        }
+
+    .nav-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    background-color: #41657a;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 60px;
+    margin-bottom: 2px;
+}
+
+    .nav-header a{
+        color: rgb(0, 200, 255);
+        text-decoration: none;
+        align-items: center;
+    }
+
+    .account-btn {
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        background-color: #232f4e;
+        color: #fff;
+        border: none;
+        font-size: 18px;
+        cursor: pointer;
+    }
+
+    
+
+    .nav-item {
+        padding: 15px 20px;
+        text-decoration: none;
+        color: #ffffff;
+        border-bottom: 1px solid #ddd;
+        
+    }
+
+    .nav-item.active {
+        background-color: orange;
+        box-shadow: 2px 5px 5px rgba(0, 0, 0, 0.5);
+        border-radius: 5px;
+    }
+
+    .nav-item:last-child {
+        border-bottom: none;
+    }
+
+    #icon{
+        padding-right: 15px;
+    }
+
+        /* Overlay to blur background */
+        #overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 150;
+            display: none;
+        }
+
+        /* Main content area */
+        #main-content {
+            padding: 20px;
+        }
+
+        /* Make sure the specific text is on top of the sidebar */
+        #specific-text {
+            position: relative;
+            z-index: 300;
+            color: black;
+            font-size: 20px;
+        }
+
+        /* When the sidebar is open */
+        #sidebar.open {
+            transform: translateX(0);
+        }
+
+        /* Blur the main content when the sidebar is open */
+        #main-content.blurred {
+            filter: blur(5px);
+        }
+
+        /* Button to open the sidebar 
+        #openSidebarBtn {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }*/
+    </style>
+</head>
+<body>
+    
+    
+
+    <!-- Sidebar -->
+    <div id="sidebar">
+        <div class="nav-header">
+            <a href="account.html"><button  class="account-btn" id="accBtn">A</button> UserName</a>
+        </div>
+        <a href="#" class="nav-item active"><i class="fas fa-house" id="icon"></i>Home</a>
+        <a href="#" class="nav-item"><i class="fas fa-cart-shopping" id="icon"></i>Cart</a>
+        <a href="#" class="nav-item"><i class="fas fa-bell" id="icon"></i>Notification</a>
+        <a href="#" class="nav-item"><i class="fas fa-user-secret" id="icon"></i>Account</a>
+        <!-- Add more links or content as needed -->
+    </div>
+     
+    
+    <!-- Main content area -->
+    <div id="main-content">
+        <header>
+            <!-- Button to open the sidebar -->
+            <button id="openSidebarBtn" class="fas fa-bars"></button>
+
+            <div id="logo" class="logo">
+                Organic Invenntory
+            </div>
+
+            <div class="search-bar">
+                <input type="text" placeholder="Search...">
+                <button onclick="searchProducts()">Search</button>
+            </div>
+
+            
+        </header>
+
+    
+
+    
+        <section class="products" id="main-content">
+            <div class="product" image="" data-stock="5" data-expiration="2024-09-01" barcode = '0073076552945'>
+                <img src="items/ITEM BG/20240815_173518-removebg-preview.png" alt="Product 1">
+                <h2>Doritos Chips Tortilla</h2>
+                <p>$</p>
+                <button onclick="viewDetails(this)">View Details</button>
+                <p class="stock-info"></p>
+            </div>
+
+            <div class="product" data-stock="2" data-expiration="2024-07-22" barcode = '1673076552945' price = 370>
+                <img src="items/ITEM BG/20240815_175614-removebg-preview.png" alt="Product 2">
+                <h2>Product 2</h2>
+                <p>$38.00</p>
+                <button onclick="viewDetails(this)">View Details</button>
+                <p class="stock-info"></p>
+            </div>
+
+            <div class="product" data-stock="0" data-expiration="2024-07-22" barcode = '5673056552945'>
+                <img src="items/ITEM BG/20240815_175326-removebg-preview.png" alt="Product 2">
+                <h2>Safa Corn Flour</h2>
+                <p>$200.00</p>
+                <button onclick="viewDetails(this)">View Details</button>
+                <p class="stock-info"></p>
+            </div>
+
+            <div class="product" data-stock="2" data-expiration="2024-07-22" barcode = '0673076552945'>
+                <img src="items/ITEM BG/20240815_175841-removebg-preview.png" alt="Product 2">
+                <h2>Product 4</h2>
+                <p>$300.00</p>
+                <button onclick="viewDetails(this)">View Details</button>
+                <p class="stock-info"></p>
+            </div>
+
+            <div class="product" data-stock="2" data-expiration="2024-07-22" barcode = '5673076552645'>
+                <img src="items/ITEM BG/20240815_175820-removebg-preview.png" alt="Product 2">
+                <h2>Product 5</h2>
+                <p>$375.00</p>
+                <button onclick="viewDetails(this)">View Details</button>
+                <p class="stock-info"></p>
+            </div>
+
+            <div class="product" data-stock="21" data-expiration="2024-07-22" barcode = '5603076552945'>
+                <img src="items/ITEM BG/20240815_175257-removebg-preview.png" alt="Product 2">
+                <h2>Product 6</h2>
+                <p>$5.00</p>
+                <button onclick="viewDetails(this)">View Details</button>
+                <p class="stock-info"></p>
+            </div>
+
+            <div class="product" data-stock="2" data-expiration="2024-07-22" barcode = '5673076552946'>
+                <img src="items/ITEM BG/20240815_175830-removebg-preview.png" alt="Product 2">
+                <h2>Product 7</h2>
+                <p>$5.00</p>
+                <button onclick="viewDetails(this)">View Details</button>
+                <p class="stock-info"></p>
+            </div>
+
+            <div class="product" data-stock="2" data-expiration="2024-07-22" barcode = '2673076552945'>
+                <img src="items/ITEM BG/20240815_175413-removebg-preview.png" alt="Product 2">
+                <h2>Product 8</h2>
+                <p>$5.00</p>
+                <button onclick="viewDetails(this)">View Details</button>
+                <p class="stock-info"></p>
+            </div>
+
+            <div class="product" data-stock="2" data-expiration="2024-07-22" barcode = '5473076552945'>
+                <img src="items/ITEM BG/20240815_180022-removebg-preview.png" alt="Product 2">
+                <h2>Product 9</h2>
+                <p>1000.00 Br</p>
+                <button onclick="viewDetails(this)">View Details</button>
+                <p class="stock-info"></p>
+            </div>
+
+            <div class="product" data-stock="2" data-expiration="2024-07-22" barcode = '5673076052945'>
+                <img src="items/ITEM BG/20240815_173548-removebg-preview.png" alt="Product 2">
+                <h2>Product 10</h2>
+                <p>$5.00</p>
+                <button onclick="viewDetails(this)">View Details</button>
+                <p class="stock-info"></p>
+            </div>
+
+            <div class="product" data-stock="2" data-expiration="2024-07-22" barcode = '5679076552945'>
+                <img src="items/ITEM BG/20240815_175623-removebg-preview.png" alt="Product 2">
+                <h2>Product 11</h2>
+                <p>$5.00</p>
+                <button onclick="viewDetails(this)">View Details</button>
+                <p class="stock-info"></p>
+            </div>
+
+            <div class="product" data-stock="2" data-expiration="2024-07-22"barcode = '5673079552945'>
+                <img src="items/ITEM BG/20240815_175505-removebg-preview (2).png" alt="Product 2">
+                <h2>Product 12</h2>
+                <p>$5.00</p>
+                <button onclick="viewDetails(this)">View Details</button>
+                <p class="stock-info"></p>
+            </div>
+
+            <div class="product" data-stock="2" data-expiration="2024-07-22" barcode = '5677076552945'>
+                <img src="items/ITEM BG/20240815_173558-removebg-preview.png" alt="Product 2">
+                <h2>Product 13</h2>
+                <p>$5.00</p>
+                <button onclick="viewDetails(this)">View Details</button>
+                <p class="stock-info"></p>
+            </div>
+
+            <div class="product" data-stock="2" data-expiration="2024-08-19" barcode = '5673076552985'>
+                <img src="items/ITEM BG/20240815_175859-removebg-preview.png" alt="Product 2" >
+                <h2>Product 14</h2>
+                <p>$5.00</p>
+                <button onclick="viewDetails(this)">View Details</button>
+                
+                <p class="stock-info"></p>
+            </div>
+
+            <div class="product" data-stock="21" data-expiration="2024-07-22" barcode = '5673076502945'>
+                <img src="items/ITEM BG/20240818_163513.png" alt="Product 2">
+                <h2>King Eggs</h2>
+                <p>$5.00</p>
+                <button onclick="viewDetails(this)">View Details</button>
+                <p class="stock-info"></p>
+            </div>
+
+            <div class="product" data-stock="21" data-expiration="2024-07-22" barcode = '5673076552945'>
+                <img src="items/ITEM BG/20240820_192821.png" alt="Product 2">
+                <h2>American Gourment yellow mustard</h2>
+                <p>$5.00</p>
+                <button onclick="viewDetails(this)">View Details</button>
+                <p class="stock-info"></p>
+            </div>
+          
+
+            <!-- Add more products as needed -->
+        </section>
+    </div>
+
+    <!-- Overlay for background blur -->
+    <div id="overlay"></div>
+
+    <script>
+        document.querySelectorAll('.nav-item').forEach(item => {
+    item.addEventListener('click', function() {
+        document.querySelectorAll('.nav-item').forEach(nav => nav.classList.remove('active'));
+        this.classList.add('active');
+    });
+});
+
+        // Get the elements
+        const sidebar = document.getElementById('sidebar');
+        const overlay = document.getElementById('overlay');
+        const mainContent = document.getElementById('main-content');
+
+        // Function to open the sidebar
+        function openSidebar() {
+            sidebar.classList.add('open');
+            overlay.style.display = 'block';
+            mainContent.classList.add('blurred');
+        }
+
+        // Function to close the sidebar
+        function closeSidebar() {
+            sidebar.classList.remove('open');
+            overlay.style.display = 'none';
+            mainContent.classList.remove('blurred');
+        }
+
+        // Event listener for the overlay
+        overlay.addEventListener('click', closeSidebar);
+
+        // Add event listener to open sidebar button
+        document.getElementById('openSidebarBtn').addEventListener('click', openSidebar);
+    </script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <title>Notification Icon Example</title>
+    <style>
+        /* Notification bell container */
+        .notification {
+            position: relative;
+            display: inline-block;
+        }
+
+        /* Bell icon (using a simple emoji as placeholder, replace with an actual icon if needed) */
+        .notification .icon {
+            font-size: 40px;
+            cursor: pointer;
+        }
+
+        /* Badge (number of unread notifications) */
+        .notification .badge {
+            position: absolute;
+            top: -5px;
+            right: -10px;
+            padding: 5px 10px;
+            border-radius: 50%;
+            background-color: red;
+            color: white;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Notification Bell with Badge -->
+    <div class="notification">
+        <span class="icon  fas fa-bell"></span>
+        <span id="notification-count" class="badge"></span>
+    </div>
+
+    <button onclick="addNotification()">Add</button>
+
+    <script>
+        // JavaScript to dynamically update the notification count
+        let unreadCount = 0; // Initial unread notifications count
+        const badge = document.getElementById('notification-count');
+
+        // Function to simulate receiving a new notification
+        function addNotification() {
+            
+            badge.textContent = unreadCount;
+            if(unreadCount==0){
+                badge.style.display = 'none';
+            }
+           if(unreadCount > 9){
+              badge.textContent = '9+';
+           }
+
+           unreadCount++;
+        }
+
+        // Example: Simulate receiving new notifications every 5 seconds
+        setInterval(addNotification, 2000);
+    </script>
+
+</body>
+</html>

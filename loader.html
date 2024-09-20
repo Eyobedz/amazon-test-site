@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>One UI Loading Animation</title>
+    <style>
+        body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0;
+}
+
+.loading-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.spinner {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: repeat(2,1fr);
+    width: 60px;
+    height: 60px;
+    transform-origin:center;
+    border-radius: 0%;
+    animation: spin  2s infinite;
+}
+
+.dot{
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    background-color: black;
+}
+
+#dot1{
+    background-color: rgb(63, 230, 130);
+    grid-column: 1;
+    grid-row: 1;
+    align-self: flex-start;
+    justify-self: flex-start;
+}
+
+#dot2{
+    position: relative;
+    background-color: rgb(0, 0, 255);
+    grid-column: 2;
+    grid-row: 1;
+    align-self: start;
+    justify-self: flex-end;
+    
+}
+
+#dot3{
+    position: relative;
+    background-color: rgb(0,0, 255);
+    grid-column: 1;
+    grid-row: 2;
+    align-self: flex-end;
+    justify-self: flex-start;
+   
+}
+
+#dot4{
+    position: relative;
+    background-color: rgb(0, 0, 255);
+    grid-column: 2;
+    grid-row: 2;
+    align-self: flex-end;
+    justify-self: flex-end;
+   
+}
+
+@keyframes spin {
+    0%{
+        transform: rotate(0deg);
+        gap: 0px;
+    }
+
+    25%{
+        gap: 5px;
+    }
+
+
+
+    50%{
+       
+        gap: 15px;
+        scale: 1.25;
+    }
+
+    100% {
+        transform: rotate(720deg);
+        gap: 5px;
+    }
+}
+    </style>
+</head>
+<body>
+    <div class="loading-container">
+       
+    </div>
+</body>
+</html>

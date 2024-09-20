@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hamburger Menu</title>
+    <!--<link rel="stylesheet" href="styles.css">-->
+    <style>
+        body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        }
+
+        .menu-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #333;
+            padding: 10px;
+        }
+
+        .hamburger-menu {
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .bar {
+            width: 25px;
+            height: 3px;
+            background-color: #fff;
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        .nav-menu {
+            display: none;
+            position: absolute;
+            top: 50px;
+            left: 0;
+            width: 200px;
+            background-color: #333;
+            padding: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-menu ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav-menu li {
+            margin: 10px 0;
+        }
+
+        .nav-menu a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .nav-menu a:hover {
+            text-decoration: underline;
+        }
+
+        .nav-menu.show {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="menu-container">
+        <div class="hamburger-menu" id="menu-toggle">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+        <nav class="nav-menu" id="nav-menu">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Trending</a></li>
+                <li><a href="#">Subscriptions</a></li>
+                <li><a href="#">Library</a></li>
+                <li><a href="#">History</a></li>
+                <li><a href="#">Your Videos</a></li>
+            </ul>
+        </nav>
+    </div>
+    <script>
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+        var navMenu = document.getElementById('nav-menu');
+        navMenu.classList.toggle('show');
+        });
+    </script>
+</body>
+</html>

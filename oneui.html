@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samsung One UI Loading Animation</title>
+    <style>
+    .loader {
+  width: 35px;
+  aspect-ratio: 1;
+  --_g: no-repeat radial-gradient(farthest-side,#ff0000 94%,rgba(65, 1, 255, 0));
+  --_b: no-repeat radial-gradient(farthest-side,#0004ff 94%,rgba(65, 1, 255, 0));
+  background:
+    var(--_g) 0    0,
+    var(--_g) 50% 100%,
+    var(--_g) 100% 50%,
+    var(--_b) 50%   0;
+  background-size: 40% 40%;
+  animation: l38 1s infinite; 
+}
+@keyframes l38 {
+  100% {background-position: 100% 0,100% 100%,0 100%,0 0}
+}
+    </style>
+</head>
+<body>
+    <div class="loader"></div>
+</body>
+</html>
+
+

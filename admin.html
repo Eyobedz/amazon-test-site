@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Organic Invenntory</title>
+    <link rel="stylesheet" href="new.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+<body>
+   
+    
+
+    <nav id="sidebar" class="nav-menu">
+        <div id="logo" class="logo">
+            <img src="meh.png" alt="logo">
+            <p> Organic Invenntory Managment</p>
+        </div>
+        <div class="nav-header">
+            <a href="account.html"><button  class="account-btn" id="accBtn">A</button> UserName</a>
+        </div>
+        <a href="#" class="nav-item active"><i class="fas fa-house" id="icon"></i>Home</a>
+        <a href="coming.html" class="nav-item"><i class="fas fa-cart-shopping" id="icon"></i>Cart</a>
+        <a href="coming.html" class="nav-item"><i class="fas fa-bell" id="icon"></i>Notification</a>
+        <a href="coming.html" class="nav-item"><i class="fas fa-user-secret" id="icon"></i>Account</a>
+        <a href="coming.html" class="nav-item"><i class="fas fa-list-check" id="icon"></i>Order List</a>
+        <a href="coming.html" class="nav-item"><i class="fas fa-gear" id="icon"></i>Setting</a>
+        <a href="coming.html" class="nav-item" style="color: red; font-weight: bold;"><i id="icon"></i>Log out</a>
+        
+    </nav>
+
+    
+
+
+    <main>
+        <div id="loader" class="center" style="display:none;">
+            <div class="spinner">
+                <div class="dot" id="dot1"></div>
+                <div class="dot" id="dot2"></div>
+                <div class="dot" id="dot3"></div>
+                <div class="dot" id="dot4"></div>
+            </div>
+        </div>
+        <header>
+            <button class="fas fa-bars" id="hamburger-menu"></button>
+            <div id="logo" class="logo">
+                <img src="meh.png" alt="logo">
+            <p> Organic Invenntory</p>
+            </div>
+
+            <div class="search-bar">
+                <input type="text" placeholder="Search..." >
+                <button onclick="searchProducts()">Search</button>
+            </div>
+            <div>
+                <button class="fas fa-bell" id="notification-icon" ></button>
+                
+            </div>
+            <div>
+                <button class="fas fa-magnifying-glass" id="search-icon"></button>
+                
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html"><i id='navbtns' class="fas fa-house" title="Home"></i></a></li>
+                    <li><a href="coming.html"><i id='navbtns' title="cart" class="fas fa-cart-shopping"></i></a></li>
+                    <li><a href="coming.html"></a><i id='navbtns' class="fas fa-bell" title="Notification"></i></li>
+                    <li><a href="#"></a><button id="accBtn" title="account" ><i class="fas fa-user-secret" ; style="scale: 150%;"></i></button></li>
+                </ul>
+            </nav>
+
+
+
+            
+
+
+
+
+        </header>
+    
+        <section class="products" id="main-content">
+            <div class="product" data-stock="5" data-unit='pis' data-expiration="2024-09-01" barcode = '0073076552945' price = 370 priceper="pis">
+                <img src="items/ITEM BG/20240815_173518-removebg-preview.png" alt="Product 1">
+                <h2>Doritos Chips Tortilla</h2>
+                <p>$</p>
+                <button onclick="viewDetails(this)">View Details</button>
+                <p class="stock-info"></p>
+            </div>
+
+            <div class="product" data-stock="2" data-unit='pis' data-expiration="2024-07-22" barcode = '1673076552945' price = 370 priceper="pis">
+                <img src="items/ITEM BG/20240815_175614-removebg-preview.png" alt="Product 2">
+                <h2>Product 2</h2>
+                <p>$38.00</p>
+                <button onclick="viewDetails(this)">View Details</button>
+                <p class="stock-info"></p>
+            </div>
+
+            <div class="product" data-stock="0" data-expiration="2024-07-22" barcode = '5673056552945'>
+                <img src="items/ITEM BG/20240815_175326-removebg-preview.png" alt="Product 2">
+                <h2>Safa Corn Flour</h2>
+                <p>$200.00</p>
+                <button onclick="viewDetails(this)">View Details</button>
+                <p class="stock-info"></p>
+            </div>
+
+            <div class="product" data-stock="2" data-expiration="2024-07-22" barcode = '0673076552945'>
+                <img src="items/ITEM BG/20240815_175841-removebg-preview.png" alt="Product 2">
+                <h2>Product 4</h2>
+                <p>$300.00</p>
+                <button onclick="viewDetails(this)">View Details</button>
+                <p class="stock-info"></p>
+            </div>
+
+            <div class="product" data-stock="2" data-expiration="2024-07-22" barcode = '5673076552645'>
+                <img src="items/ITEM BG/20240815_175820-removebg-preview.png" alt="Product 2">
+                <h2>Product 5</h2>
+                <p>$375.00</p>
+                <button onclick="viewDetails(this)">View Details</button>
+                <p class="stock-info"></p>
+            </div>
+
+            <div class="product" data-stock="21" data-expiration="2024-07-22" barcode = '5603076552945'>
+                <img src="items/ITEM BG/20240815_175257-removebg-preview.png" alt="Product 2">
+                <h2>Product 6</h2>
+                <p>$5.00</p>
+                <button onclick="viewDetails(this)">View Details</button>
+                <p class="stock-info"></p>
+            </div>
+
+            <div class="product" data-stock="2" data-expiration="2024-07-22" barcode = '5673076552946'>
+                <img src="items/ITEM BG/20240815_175830-removebg-preview.png" alt="Product 2">
+                <h2>Product 7</h2>
+                <p>$5.00</p>
+                <button onclick="viewDetails(this)">View Details</button>
+                <p class="stock-info"></p>
+            </div>
+
+            <div class="product" data-stock="2" data-expiration="2024-07-22" barcode = '2673076552945'>
+                <img src="items/ITEM BG/20240815_175413-removebg-preview.png" alt="Product 2">
+                <h2>Product 8</h2>
+                <p>$5.00</p>
+                <button onclick="viewDetails(this)">View Details</button>
+                <p class="stock-info"></p>
+            </div>
+
+            <div class="product" data-stock="2" data-expiration="2024-07-22" barcode = '5473076552945'>
+                <img src="items/ITEM BG/20240815_180022-removebg-preview.png" alt="Product 2">
+                <h2>Product 9</h2>
+                <p>1000.00 Br</p>
+                <button onclick="viewDetails(this)">View Details</button>
+                <p class="stock-info"></p>
+            </div>
+
+            <div class="product" data-stock="2" data-expiration="2024-07-22" barcode = '5673076052945'>
+                <img src="items/ITEM BG/20240815_173548-removebg-preview.png" alt="Product 2">
+                <h2>Product 10</h2>
+                <p>$5.00</p>
+                <button onclick="viewDetails(this)">View Details</button>
+                <p class="stock-info"></p>
+            </div>
+
+            <div class="product" data-stock="2" data-expiration="2024-07-22" barcode = '5679076552945'>
+                <img src="items/ITEM BG/20240815_175623-removebg-preview.png" alt="Product 2">
+                <h2>Product 11</h2>
+                <p>$5.00</p>
+                <button onclick="viewDetails(this)">View Details</button>
+                <p class="stock-info"></p>
+            </div>
+
+            <div class="product" data-stock="2" data-expiration="2024-07-22"barcode = '5673079552945'>
+                <img src="items/ITEM BG/20240815_175505-removebg-preview (2).png" alt="Product 2">
+                <h2>Product 12</h2>
+                <p>$5.00</p>
+                <button onclick="viewDetails(this)">View Details</button>
+                <p class="stock-info"></p>
+            </div>
+
+            <div class="product" data-stock="2" data-expiration="2024-07-22" barcode = '5677076552945'>
+                <img src="items/ITEM BG/20240815_173558-removebg-preview.png" alt="Product 2">
+                <h2>Product 13</h2>
+                <p>$5.00</p>
+                <button onclick="viewDetails(this)">View Details</button>
+                <p class="stock-info"></p>
+            </div>
+
+            <div class="product" data-stock="2" data-expiration="2024-08-19" barcode = '5673076552985'>
+                <img src="items/ITEM BG/20240815_175859-removebg-preview.png" alt="Product 2" >
+                <h2>Product 14</h2>
+                <p>$5.00</p>
+                <button onclick="viewDetails(this)">View Details</button>
+                
+                <p class="stock-info"></p>
+            </div>
+
+            <div class="product" data-stock="21" data-expiration="2024-07-22" barcode = '5673076502945'>
+                <img src="items/ITEM BG/20240818_163513.png" alt="Product 2">
+                <h2>King Eggs</h2>
+                <p>$5.00</p>
+                <button onclick="viewDetails(this)">View Details</button>
+                <p class="stock-info"></p>
+            </div>
+
+            <div class="product" data-stock="1" data-expiration="2024-07-22" barcode = '5673076552945'>
+                <img src="items/ITEM BG/20240820_192821.png" alt="Product 2">
+                <h2>American Gourment yellow mustard</h2>
+                <p>$5.00</p>
+                <button onclick="viewDetails(this)">View Details</button>
+                <p class="stock-info"></p>
+            </div>
+          
+
+            <!-- Add more products as needed -->
+        </section>
+        
+        
+
+
+        <!--add product popup form-->
+
+        <div id="addProduct">
+            <button id="addBtn" title="Add new product">+</button>
+        </div>
+       
+        <div id="pdform" style="display: none;">
+            <div><button id="closBtn">X</button></div>
+            <h2 style="text-align: center;">Add Product</h2>
+            <form id="product-form" enctype="multipart/form-data">
+                <table>
+                    <tr><td><Label for="product-name-input">Product Name</Label><td>
+                        <input type="text" id="product-name-input" placeholder="Product Name" ></td></td>
+
+                    <tr><td><Label for="quantity-input">Quantity</Label><td>
+                        <input type="number" id="quantity-input" placeholder="Quantity" ></td></tr>
+
+                    <tr><td><Label for="Unit">Measuring Unit</Label><td>
+                        <input name="unit list" list="unitList" id="Unit" placeholder="Unit" >
+                            <datalist id="unitList">
+                                <option>pis</option>
+                                <option>Kg</option>
+                                <option>Liter</option>
+                                <option>/100g</option>
+                            </datalist>
+                    </td></tr>
+
+
+                    <tr><td><Label for="price-input">Price</Label><td>
+                        <input type="number" id="price-input" placeholder="Price">
+                        <Label for="priceper">/</Label>
+                            <select id="priceper" placeholder="Price per" >
+                                    <option value="" disable selected hidden>Per Unit</option>
+                                    <option value="/pis">pis</option>
+                                    <option value="/Kg">Kg</option>
+                                    <option value="/Liter">Liter</option>
+                                    <option value="/100g">100g</option>
+                            </select>
+                    </td></tr>   
+                        
+                    
+                    
+                    <tr><td><Label for="expirationDate-input">Expiration date</Label><td>
+                        <input type="date" id="expirationDate-input" placeholder="Expiration Date" ></td></tr>
+                    <tr><td><Label for="barcode">Barcode</Label><td>
+                        <input type="number" id="barcode" placeholder="Barcode"></td></tr>
+                    <tr><td><Label for="image-input">Image</Label><td>
+                        <input type="file" id="image-input" accept="image/*"></td></tr>
+                    <tr><td>
+                        <td><button type="submit" id="submitBtn">Add Product</button></td></tr>
+                
+                </table>
+            </form>
+        </div>
+
+
+    </main>
+
+
+    
+
+        <!-- view deatail button popup -->
+
+        <div id="detail" style="display: none;">
+            <div >
+                <button id="closeBtn" title="close">X</button>
+            </div>
+            
+            <table id="info">
+                
+                <tr>
+                    <td class="tbco0" rowspan="5"><img src="" alt="product image" id="detimg" ></td>
+                    <td id="tbco1">Product Name:</td>
+                    <td id="tbco2"><label id="pdName"></label></td>
+                </tr>
+
+                <tr>
+                    <td id="tbco1">Stock:</td>
+                    <td id="tbco2"><label id="pdstock">/</label><label id="pdunit"></label></td>
+                </tr>
+
+                <tr>
+                    <td id="tbco1">Expiration date:</td>
+                    <td id="tbco2"><label id="exDate">dd/mm/yy</label></td>
+                </tr>
+
+                <tr>
+                    <td id="tbco1">barcode:</td>
+                    <td id="tbco2"><label id="bcode">barcode</label></td>
+                </tr>
+
+                <tr>
+                    <td id="tbco1">Price:</td>
+                    <td id="tbco2"><label id="price">Price</label><label id="pdpriceper"></label></td>
+                </tr>
+
+                
+                
+            </table>
+            <div class="choice">
+                <button  id="editbtn" title="Edit this item" onclick="editinfo(this)">Edit</button>
+                <button  id="deletebtn" title="Delete this item">Delete</button>
+            </div>
+
+            <!-- Modal for confirmation -->
+            <div id="confirmModal" class="modal">
+                <div class="modal-content">
+                    <p>Are you sure you want to delete this product?</p>
+                    <div class="modal-buttons">
+                        <button id="confirmYes">Yes</button>
+                        <button id="confirmNo">No</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+ 
+
+
+
+
+       
+            
+       
+
+
+            <!--Edit Details-->
+
+        <div id="editform"  style="display: none;">
+            <div><button id="editcloseBtn">X</button></div>
+            <h2 style="text-align: center;">Edit Product Details</h2>
+            <form id="edit-form" enctype="multipart/form-data">
+                <table>
+                    <tr><td><Label for="edit-product-name-input">Product Name</Label><td>
+                        <input type="text" name="productName" id="edit-product-name-input" placeholder="Product Name" ></td></td>
+
+                    <tr><td><Label for="edit-quantity-input">Quantity</Label><td>
+                        <input type="number" id="edit-quantity-input" placeholder="Quantity" ></td></tr>
+
+                    <tr><td><Label for="edit-Unit">Measuring Unit</Label><td>
+                        <input name="unit list" list="unitList" id="edit-Unit" placeholder="Unit" >
+                            <datalist id="unitList">
+                                <option value="" disable selected hidden>Per Unit</option>
+                                <option value="pis">pis</option>
+                                <option value="Kg">Kg</option>
+                                <option value="Liter">Liter</option>
+                                <option value="100g">100g</option>
+                            </datalist>
+                    </td></tr>
+                    
+
+                    <tr><td><Label for="edit-price-input">Price</Label><td>
+                        <input type="number" id="edit-price-input" placeholder="Price">
+                        <Label for="edit-priceper">/</Label>
+                            <select id="edit-priceper" placeholder="Price per" >
+                                    <option value="" disable selected hidden>Per Unit</option>
+                                    <option value="/pis">pis</option>
+                                    <option value="/Kg">Kg</option>
+                                    <option value="/Liter">Liter</option>
+                                    <option value="/100g">100g</option>
+                            </select>
+                    </td></tr>   
+                        
+                    
+                    
+                    <tr><td><Label for="edit-expirationDate-input">Expiration date</Label><td>
+                        <input type="date" id="edit-expirationDate-input" placeholder="Expiration Date" ></td></tr>
+                    <tr><td><Label for="edit-barcode">Barcode</Label><td>
+                        <input type="number" id="edit-barcode" placeholder="Barcode"></td></tr>
+                    <tr><td><Label for="edit-image-input">Image</Label><td>
+                        <input type="file" id="edit-image-input" accept="image/*"></td></tr>
+                    
+                        
+                </table>
+                <div class="choice">
+                    <button  type="submit"  id="Savebtn" title="Save changes">Save</button>
+                </div>
+            </form>
+
+            <!-- Modal for confirmation -->
+            <div id="editModal" class="modal">
+                <div class="modal-content">
+                    <p>Are you sure you want to discard changes to this product?</p>
+                    <div class="modal-buttons">
+                        <button id="editconfirmYes">Yes</button>
+                        <button id="editconfirmNo">No</button>
+                    </div>
+                </div>
+            </div>
+
+        </div> 
+            
+        
+
+        
+    <footer>
+        <p>&copy; 2024 Organic Invenntory. All rights reserved.</p>
+    </footer>
+
+    <!-- Overlay for background blur -->
+    <div id="overlay"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Bar Example</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #333;
+    color: white;
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.icons {
+    display: flex;
+    align-items: center;
+}
+
+.icon {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    margin-left: 15px;
+    cursor: pointer;
+}
+
+.search-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background-color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    z-index: 10;
+    transition: all 0.3s ease-in-out;
+}
+
+.hidden {
+    display: none;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.back-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+#search-input {
+    padding: 8px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    width: 100%;
+    color: black;
+}
+
+.mic-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">
+            <span>YouTube</span>
+        </div>
+        <div class="icons">
+            <button id="search-btn" class="icon">&#128269;</button> <!-- Search icon -->
+            <button class="icon">&#128276;</button> <!-- Notifications icon -->
+            <button class="icon">&#128100;</button> <!-- Profile icon -->
+        </div>
+    </div>
+
+    <div class="search-container hidden">
+        <div class="search-bar">
+            <button id="back-btn" class="back-btn">&#x2190;</button> <!-- Back icon -->
+            <input type="text" id="search-input" placeholder="Search YouTube">
+           <!--  <button class="mic-btn">&#127908;</button> Microphone icon -->
+        </div>
+    </div>
+
+    <script>
+        const searchBtn = document.getElementById('search-btn');
+const searchContainer = document.querySelector('.search-container');
+const backBtn = document.getElementById('back-btn');
+
+searchBtn.addEventListener('click', function() {
+    searchContainer.classList.remove('hidden');
+});
+
+backBtn.addEventListener('click', function() {
+    searchContainer.classList.add('hidden');
+});
+    </script>
+</body>
+</html>

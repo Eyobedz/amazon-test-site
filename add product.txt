@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organic Invenntory</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">Organic Invenntory</div>
+        <div class="search-bar">
+            <input type="text" placeholder="Search...">
+            <button onclick="searchProducts()">Search</button>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="cart.html">cart</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div id="product-list"></div>
+        <div id="product-details" style="display:none;">
+        <h2>Product Details</h2>
+        <p id="product-name"></p>
+        <p id="product-quantity"></p>
+        <p id="product-expirationDate"></p>
+        <img id="product-image" src="" alt="Product Image" style="width:200px;">
+        </div>
+        <div id="admin-form">
+        <h2>Add Product</h2>
+        <form id="product-form" enctype="multipart/form-data">
+            <input type="text" id="product-name-input" placeholder="Product Name" required>
+            <input type="number" id="quantity-input" placeholder="Quantity" required>
+            <input type="date" id="expirationDate-input" placeholder="Expiration Date" required>
+            <input type="file" id="image-input" accept="image/*">
+            <button type="submit">Add Product</button>
+        </form>
+        </div>
+
+    </main>
+    <footer>
+        <p>&copy; 2024 Organic Invenntory. All rights reserved.</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organic Invenntory</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">Organic Invenntory</div>
+        <div class="search-bar">
+            <input type="search" placeholder="Search...">
+            <button onclick="searchProducts()">Search</button>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="cart.html">cart</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div id="product-list"></div>
+        <div id="product-details" style="display:none;">
+        <h2>Product Details</h2>
+        <p id="product-name"></p>
+        <p id="product-quantity"></p>
+        <p id="product-expirationDate"></p>
+        <img id="product-image" src="" alt="Product Image" style="width:200px;">
+        </div>
+        <div id="pdad-form">
+            <div><button id="closeBtn">X</button></div>
+            <h2 style="text-align: center;">Add Product</h2>
+            <form id="product-form" enctype="multipart/form-data">
+                <table>
+                    <tr><td>Product Name<td>
+                        <input type="text" id="product-name-input" placeholder="Product Name" required></td></td>
+                    <tr><td>Quantity<td>
+                        <input type="number" id="quantity-input" placeholder="Quantity" required></td></tr>
+                    <tr><td>Unit<td>
+                        <input name="unit list" list="unitList" id="Unit" placeholder="Unit" required>
+                            <datalist id="unitList">
+                                <option>pis</option>
+                                <option>Kg</option>
+                                <option>Liter</option>
+                                <option>pack</option>
+                            </datalist></td></tr>
+                    <tr><td>Price<td>
+                        <input type="number" id="price-input" placeholder="Price"></td></tr>
+                    <tr><td>
+                    <tr><td>Expiration date<td>
+                        <input type="date" id="expirationDate-input" placeholder="Expiration Date" required></td></tr>
+                    <tr><td>Barcode<td>
+                        <input type="number" id="barcode" placeholder="Barcode" required></td></tr>
+                    <tr><td>Image<td>
+                        <input type="file" id="image-input" accept="image/*"></td></tr>
+                    <tr><td>
+                        <td><button type="submit" id="submitBtn">Add Product</button></td></tr>
+                
+                </table>
+            </form>
+        </div>
+
+    </main>
+    <footer >
+        <p>&copy; 2024 Organic Invenntory. All rights reserved.</p>
+    </footer>
+    <script src='#'></script>
+</body>
+</html>
+

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image loader</title>
+    <style>
+        .image-container {
+            position: relative;
+            width: 50px;
+            height: 50px;
+        }
+        img{
+            width: 150px;
+            height: 150px;
+        }
+    
+        #loading-animation {
+            position: absolute;
+            top: 0;
+            left: 0;
+            /* You can style your custom loading animation here */
+        }
+    </style> 
+</head>
+<body>
+   <div class="image-container">
+    <div id="loading-animation">Loading...</div>
+    <img id="myImage" src="meh.png" alt="Image" style="display: none;">
+</div>
+
+<script>
+    const image = document.getElementById('myImage');
+    const loadingAnimation = document.getElementById('loading-animation');
+
+    image.onload = function() {
+        loadingAnimation.style.display = 'none';
+        image.style.display = 'block'; // Show the image after loading
+    };
+
+    // For browsers caching the image
+    if (image.complete) {
+        image.onload();
+    }
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,52 @@
+document.addEventListener("DOMContentLoaded", () => {
+    checkStockAndExpiration();
+});
+
+function checkStockAndExpiration() {
+    const products = document.querySelectorAll('.product');
+    const today = new Date();
+
+    products.forEach(product => {
+        const stock = parseInt(product.getAttribute('data-stock'));
+        const expirationDate = new Date(product.getAttribute('data-expiration'));
+        const stockInfo = product.querySelector('.stock-info');
+
+        if (stock < 3) {
+            stockInfo.textContent = `Low stock: Only ${stock} left`;
+            stockInfo.style.color = 'red';
+        } else {
+            stockInfo.textContent = `In stock: ${stock}`;
+        }
+
+        const timeDiff = expirationDate - today;
+        const daysToExpire = Math.ceil(timeDiff / (1000 * 3600 * 24));
+
+        if (daysToExpire <= 7) {
+            alert(`Product "${product.querySelector('h2').textContent}" is expiring in ${daysToExpire} days.`);
+        }
+    });
+}
+
+function viewDetails(button) {
+    const product = button.closest('.product');
+    const productName = product.querySelector('h2').textContent;
+    const stock = product.getAttribute('data-stock');
+    const expirationDate = product.getAttribute('data-expiration');
+
+    alert(`Product: ${productName}\nStock: ${stock}\nExpiration Date: ${expirationDate}`);
+}
+
+function searchProducts() {
+    const searchBar = document.querySelector('.search-bar input');
+    const searchTerm = searchBar.value.toLowerCase();
+    const products = document.querySelectorAll('.product');
+
+    products.forEach(product => {
+        const productName = product.querySelector('h2').textContent.toLowerCase();
+        if (productName.includes(searchTerm)) {
+            product.style.display = 'block';
+        } else {
+            product.style.display = 'none';
+        }
+    });
+}
