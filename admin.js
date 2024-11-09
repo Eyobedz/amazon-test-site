@@ -278,8 +278,8 @@ function viewDetails(button) {
         console.log('hahaha')
     });
 
-    editclose.addEventListener('click', function(){
-        editmodal.style.display = 'flex';
+    document.getElementById('editcloseBtn').addEventListener('click', function(){
+        editModal.style.display = 'flex';
     });
 
 
@@ -408,9 +408,7 @@ searchInput.addEventListener("keypress", function(event) {
 
 
 
-
-
-
+// ADD NEW PRODUCT
 // script.js
 document.getElementById('product-form').addEventListener('submit', function(event) {
     event.preventDefault(); // Prevent the form from submitting normally
